@@ -13,3 +13,22 @@
  *= require_tree .
  *= require_self
  */
+
+ * {
+     font-family: Helvetica;
+ }
+
+ #nav-bar {
+     font-size: 32px;
+     font-weight: bold;
+     color:white;
+     background-color: mediumspringgreen;
+ }
+
+ .page-title {
+     font-size: 48px;
+     font-weight: bold;
+     text-align: center;
+     color: lightcoral;
+     background-image: url("pattern.webp");
+ }
