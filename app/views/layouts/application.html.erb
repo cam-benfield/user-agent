@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>User Agent Reader</title>
+    <title>User Agent Reader | <%= yield :title%></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -12,11 +12,16 @@
 
   <body>
     <header>
-      <title>User Agent Reader</title>
-      <nav>
-
+      <header class="page-title">
+        <h1><%= yield :title%></h1>
+      </header>
+      <nav id="nav-bar">
+        <%= render 'layouts/navigation' %>
+        <%= yield :nav%>
       </nav>
     </header>
-    <%= yield %>
+    <main>
+      <%= yield :body%>
+    </main>
   </body>
 </html>

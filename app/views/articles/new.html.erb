@@ -1,5 +1,12 @@
-<h1>Create An Article</h1>
+<% content_for :title do %>
+  Create an Article
+<% end %>
 
-<%= render 'form' %>
 
-<%= link_to 'Back', articles_path %>
+<% content_for :body do %>
+  <%= render 'form' %>
+<% end %>
+
+<% content_for :nav do %>
+  <%= link_to 'Back', articles_path %>
+<% end %>

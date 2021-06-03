@@ -1,23 +1,23 @@
-<h1>User Agent Parser</h1>
-<br>
-<nav>
-  <%= link_to 'Articles', controller: 'articles' %>
-</nav>
+<%= render template: "layouts/application" %>
 
-<h1> User Agent Info</h1>
-<ul>
-  <li>Full User Agent String: <%= @browser.to_s %></li>
-  <li>Device: <%= @browser.device.name %></li>
-  <li>Platform: <%= @browser.platform.name %> <%= @browser.platform.version %></li>
-  <li>Info: <%= @browser.name %> <%= @browser.full_version %></li>
-</ul>
+  <% content_for :title do %>
+    User Agent Parser
+  <% end %>
 
+  <% content_for :nav do %>
+  <% end %>
 
-<h2>Current top 5 browsers:</h2>
-<ul>
-  <li>Chrome</li>
-  <li>Edge</li>
-  <li>Firefox</li>
-  <li>Safari</li>
-  <li>Opera</li>
-</ul>
+  <% content_for :body do %>
+
+    <%= render 'agent_info' %>
+
+    <h2>Top 5 Modern browsers:</h2>
+    <ul>
+      <li><a href="https://chromereleases.googleblog.com/">Chrome</a> - Current Version found: 91.0.4472</li>
+      <li>Edge</li>
+      <li>Firefox</li>
+      <li>Safari</li>
+      <li>Opera</li>
+    </ul>
+
+  <% end %>
