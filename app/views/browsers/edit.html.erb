@@ -1,0 +1,11 @@
+<% content_for :title do %>
+  Editing article
+<% end %>
+
+<% content_for :nav do %>
+  <%= link_to 'Back', articles_path %>
+<% end %>
+
+<% content_for :body do %>
+  <%= render 'form' %>
+<% end %>
