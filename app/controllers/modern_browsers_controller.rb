@@ -1,10 +1,15 @@
 class ModernBrowsersController < ApplicationController
+
+  
+  
     def index
       @modernBrowsers = ModernBrowser.all
+      @browser = Browser.new(request.env["HTTP_USER_AGENT"])  
     end
   
     def show
       @modernBrowser = ModernBrowser.find(params[:id])
+      @browser = Browser.new(request.env["HTTP_USER_AGENT"])  
     end
   
     def new
