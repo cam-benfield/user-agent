@@ -1,5 +1,7 @@
 <% content_for :title do %>
   Create an Article
+  <br>
+  <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top"><%= link_to 'Back', articles_path %></button>
 <% end %>
 
 
@@ -8,5 +10,5 @@
 <% end %>
 
 <% content_for :nav do %>
-  <%= link_to 'Back', articles_path %>
+
 <% end %>

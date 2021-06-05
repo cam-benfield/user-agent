@@ -2,10 +2,12 @@
 
   <% content_for :title do %>
     All Articles
+    <br>
+    <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top"><%= link_to 'New Article', new_article_path %></button>
   <% end %>
 
   <% content_for :nav do %>
-    <%= link_to 'New article', new_article_path %>
+    <!-- Insert Nav Components Here -->
   <% end %>
 
   <% content_for :body do %>

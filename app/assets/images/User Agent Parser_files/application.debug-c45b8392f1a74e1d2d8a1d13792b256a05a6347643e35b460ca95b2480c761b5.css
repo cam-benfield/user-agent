@@ -10,8 +10,8 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
+
+
  */
 
  body,
@@ -33,3 +33,5 @@
  .fa-anchor,
  .fa-coffee {
      font-size: 200px
+
+/*# sourceMappingURL=application.css-167e70591ca40c34729a8be5b03fd80710b069a9a39bf786fa5b9142769bcb0b.map */
