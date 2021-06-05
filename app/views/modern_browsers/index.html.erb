@@ -1,0 +1,35 @@
+<%= render template: "layouts/application" %>
+
+  <% content_for :title do %>
+    Modern Browsers
+    <br>
+    <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top"><%= link_to 'Home', welcome_index_path %></button>
+  <% end %>
+
+  <% content_for :nav do %>
+    <!-- Insert Nav Components Here -->
+  <% end %>
+
+  <% content_for :body do %>
+
+    <br>
+    <table>
+      <thead>
+        <tr>
+          <th>Browser</th>
+          <th>Owner</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+
+      <% @modernBrowsers.each do |browser| %>
+        <tr>
+          <td><%= browser.name %></td>
+          <td><%= browser.company %></td>
+          <td><%= browser.information %> </td>
+          <td><%= link_to 'More information', browser_path(browser) %></td>
+        </tr>
+      <% end %>
+
+    </table>
+  <% end %>
