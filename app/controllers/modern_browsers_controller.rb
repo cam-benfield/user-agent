@@ -16,7 +16,7 @@ class ModernBrowsersController < ApplicationController
     end
   
     def create
-      @modernBrowser = ModernBrowser.new(article_params)
+      @modernBrowser = ModernBrowser.new(modern_browser_params)
   
       if @modernBrowser.save
         redirect_to @modernBrowser
@@ -28,7 +28,7 @@ class ModernBrowsersController < ApplicationController
     def update
       @modernBrowser = ModernBrowser.find(params[:id])
   
-      if @modernBrowser.update(browser_params)
+      if @modernBrowser.update(modern_browser_params)
         redirect_to @modernBrowser
       else
         render 'edit'
@@ -39,12 +39,12 @@ class ModernBrowsersController < ApplicationController
       @modernBrowser = ModernBrowser.find(params[:id])
       @modernBrowser.destroy
   
-      redirect_to browsers_path
+      redirect_to modern_browsers_path
     end
 
     private
-    def browser_params
-      params.require(:browser).permit(:name, :company, :information)
+    def modern_browser_params
+      params.require(:modern_browser).permit(:name, :company, :information)
     end
   end
   
