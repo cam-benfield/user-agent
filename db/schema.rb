@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_04_230611) do
+ActiveRecord::Schema.define(version: 2021_06_07_121933) do
 
   create_table "articles", force: :cascade do |t|
     t.string "title"
@@ -25,6 +25,21 @@ ActiveRecord::Schema.define(version: 2021_06_04_230611) do
     t.text "information"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "visitors", force: :cascade do |t|
+    t.string "name"
+    t.text "agent"
+    t.boolean "addons"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.text "speedtest_url"
+    t.boolean "javascript"
+    t.boolean "cookies"
+    t.boolean "third_party_cookies"
+    t.text "computer_screen"
+    t.text "browser_size"
+    t.boolean "do_not_track"
   end
 
 end

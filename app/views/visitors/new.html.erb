@@ -1,0 +1,15 @@
+<% content_for :title do %>
+  Your User Agent Info:
+  <br>
+  <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top"><%= link_to 'Back', visitors_path %></button>
+<% end %>
+
+
+<% content_for :body do %>
+<h3 class="w3-padding-32">To send your browser information to your support team:</h3>
+  <%= render 'form' %>
+<% end %>
+
+<% content_for :nav do %>
+
+<% end %>

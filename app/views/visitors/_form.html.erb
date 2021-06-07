@@ -1,0 +1,128 @@
+<%= form_for @visitor do |f| %>
+<div class="w3-row-padding w3-padding-64 w3-container">
+    <div class="w3-content">
+        <div class="w3-twothird">
+            <h1>User Agents</h1>
+            <h5 class="w3-padding-32">User Agents are best defined as the information sent to websites to identify devices, browsers, and features.</h5>
+            <p class="w3-text-grey"><%= render '/welcome/agent_info'%></p>
+        </div>
+    </div>
+</div>
+
+<div class="w3-row-padding w3-padding-32 w3-container">
+    <div class="w3-content">
+        <table class="center">
+            <script>
+                window.onload = function() {
+                    function getResolution() {
+                        var screenSize = screen.width + "x" + screen.height;
+                        return screenSize;
+                    }
+
+                    function effectiveDeviceWidth() {
+                        var deviceWidth = window.orientation == 0 ? window.screen.width : window.screen.height;
+                        if (navigator.userAgent.indexOf('Android') >= 0 && window.devicePixelRatio) {
+                            deviceWidth = deviceWidth / window.devicePixelRatio;
+                        }
+                        return deviceWidth;
+                    }
+
+                    function checkIfJSEnabled() {
+                        return true;
+                    }
+                };
+
+                function autoFill() {
+                    form.
+                    "visitor[computer_screen]".value = getResolution();
+                    form.visitor_browser_size.value = effectiveDeviceWidth();
+                    form.visitor_javascript.checked = checkIfJSEnabled();
+                }
+            </script>
+            <thead>
+                <th>
+                    Details this site can determine automatically:<br>
+                    <ul>
+                        <li><%= @visitor.agent = request.env["HTTP_USER_AGENT"] %></li>
+                        <li><%= @visitor.computer_screen = locale.getResolution %></li>
+                        <li><%= @visitor.browser_size = locale.effectiveDeviceWidth %></li>
+                    </ul>
+                </th>
+
+            </thead>
+            <tr>
+                <td>If you're aware of any Add-ons that have been installed on your browser, check here:</td>
+                <td><%= f.check_box :addons %></td>
+            </tr>
+            <tr>
+                <td>Please enter your name or the name of your account here:</td>
+                <td><%= f.text_field :name %></td>
+            </tr>
+            <br>
+            <tr>
+                <td><%= f.label :agent %></td>
+                <td><%= f.text_field :agent, :readonly => true %></td>
+            </tr>
+            <tr>
+                <td><a href="https://www.speedtest.net/">SpeedTest</a><br>
+                    If you would like to send your support team a SpeedTest, click above and add the URL provided here:
+                </td>
+                <td><%= f.text_field (:speedtest_url) %></td>
+            </tr>
+            <tr>
+                <td>Computer Screen Size:
+                </td>
+                <td><%= f.text_field :computer_screen, :readonly => true %></td>
+            </tr>
+            <tr>
+                <td>Browser Size:</td>
+                <td><%= f.text_field :browser_size, :readonly => true %></td>
+            </tr>
+            <tr>
+                <td>Do Not Track:</td>
+                <td><%= f.check_box :do_not_track, :readonly => true %></td>
+            </tr>
+            <tr>
+                <td>JavaScript On:</td>
+                <td>
+                    <script>
+                        <!--
+                        document.write("JavaScript is enabled!")
+                        -->
+                        ;
+                    </script>
+                    <noscript>
+                        Your browser does not support JavaScript!
+                    </noscript>
+                    <%= f.check_box :javascript, :readonly => true %>
+                </td>
+            </tr>
+            <tr>
+                <td>Cookies Enabled:</td>
+                <td><%= f.check_box :cookies, :readonly => true %></td>
+            </tr>
+            <tr>
+                <td>Third-Party Cookies Enabled:</td>
+                <td><%= f.check_box :third_party_cookies, :readonly => true %></td>
+            </tr>
+        </table>
+
+    </div>
+</div>
+
+<% if @visitor.errors.any? %>
+<div class="w3-row-padding w3-padding-64 w3-container">
+    <h2>
+        <%= pluralize(@visitor.errors.count, "error") %> prohibited
+        this session from being saved:
+    </h2>
+    <ul>
+        <% @visitor.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+    </ul>
+</div>
+<% end %>
+
+<%= f.submit %>
+<% end %>
