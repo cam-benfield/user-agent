@@ -13,39 +13,45 @@
     <div class="w3-content">
         <table class="center">
             <script>
-                window.onload = function() {
-                    function getResolution() {
-                        var screenSize = screen.width + "x" + screen.height;
-                        return screenSize;
-                    }
-
-                    function effectiveDeviceWidth() {
-                        var deviceWidth = window.orientation == 0 ? window.screen.width : window.screen.height;
-                        if (navigator.userAgent.indexOf('Android') >= 0 && window.devicePixelRatio) {
-                            deviceWidth = deviceWidth / window.devicePixelRatio;
+                function autoFill() {
+                    let xhr = new XMLHttpRequest();
+                    xhr.onload = function() {
+                        function getResolution() {
+                            var screenSize = screen.width + "x" + screen.height;
+                            return screenSize;
                         }
-                        return deviceWidth;
-                    }
 
-                    function checkIfJSEnabled() {
-                        return true;
-                    }
+                        function effectiveDeviceWidth() {
+                            var deviceWidth = window.orientation == 0 ? window.screen.width : window.screen.height;
+                            if (navigator.userAgent.indexOf('Android') >= 0 && window.devicePixelRatio) {
+                                deviceWidth = deviceWidth / window.devicePixelRatio;
+                            }
+                            return deviceWidth;
+                        }
+
+                        function checkIfJSEnabled() {
+                            return true;
+                        }
+
+                        @visitor.computer_screen = getResolution();
+                        @visitor.browser_size = effectiveDeviceWidth();
+                        @visitor.javascript = checkIfJSEnabled();
+
+                        xhr.send()
+                    };
                 };
 
-                function autoFill() {
-                    form.
-                    "visitor[computer_screen]".value = getResolution();
-                    form.visitor_browser_size.value = effectiveDeviceWidth();
-                    form.visitor_javascript.checked = checkIfJSEnabled();
-                }
+                autoFill();
             </script>
             <thead>
                 <th>
                     Details this site can determine automatically:<br>
                     <ul>
+                        <!-- Scope issues here, need to make into an ajax request -->
                         <li><%= @visitor.agent = request.env["HTTP_USER_AGENT"] %></li>
-                        <li><%= @visitor.computer_screen = locale.getResolution %></li>
-                        <li><%= @visitor.browser_size = locale.effectiveDeviceWidth %></li>
+                        <li><%= @visitor.computer_screen %></li>
+                        <li><%= @visitor.browser_size  %></li>
+                        <li><%= @visitor.javascript %></li>
                     </ul>
                 </th>
 
