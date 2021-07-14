@@ -11,6 +11,7 @@ application up and running.
 * `gem install rails`
   * If you run into issues with the rails install and webpacker not installing correctly, `brew install yarn` to get node and nodejs to install, as there seems to be some issues with node installing with ruby/rails.
 * `bundle install` - Make sure you don't run into any issues, if you do, please raise this as an issue on the repo.
+* `yarn install` - This will allow your rails instance to access the JS runtime when it does get up and running.
 * From here, you should have a working local/dev instance of the app. Run `rails server` and you should be good to go!
 
 
@@ -22,7 +23,10 @@ Things you may want to cover:
 
 * Database initialization
 
-* How to run the test suite
+## How to run the test suite
+
+* Rake - https://github.com/ruby/rake
+* 
 
 * Services (job queues, cache servers, search engines, etc.)
 
