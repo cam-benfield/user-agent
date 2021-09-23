@@ -1,9 +1,8 @@
 # User Agent Parser
 
-`Ruby version - 2.7.3`
+`Ruby version - 2.7.3` :-) 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+
 
 # Local/Dev Configuration
 * If you don't have homebrew installed, go ahead and do that. The best way to do so is via the homebrew site's instructions [here.](https://brew.sh/)
