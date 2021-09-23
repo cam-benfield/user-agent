@@ -4,7 +4,8 @@
 
 
 
-# Local/Dev Configuration
+# I Like Cars!
+#https://bit.ly/3kBs11o
 * If you don't have homebrew installed, go ahead and do that. The best way to do so is via the homebrew site's instructions [here.](https://brew.sh/)
 * From here, use `rbenv` to install `ruby 2.7.3`
 * `gem install rails`
